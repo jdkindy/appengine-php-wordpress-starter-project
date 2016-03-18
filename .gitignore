@@ -1,0 +1,2 @@
+# ignore wordpress deploy directory, as this is created by the prep_for_deploy.sh script
+wordpress/*
