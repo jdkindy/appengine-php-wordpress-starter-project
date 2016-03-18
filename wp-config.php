@@ -21,10 +21,22 @@
     /** The name of the database for WordPress */
     define('DB_NAME', 'wordpress_db');
 
+    # use memcache on app engine to pull DB information and keys
+    $memcache = new Memcache;
+    $this_db_host          = $memcache->get('DB_HOST');
+    $this_auth_key         = $memcache->get('AUTH_KEY');
+    $this_secure_auth_key  = $memcache->get('SECURE_AUTH_KEY');
+    $this_logged_in_key    = $memcache->get('LOGGED_IN_KEY');
+    $this_nonce_key        = $memcache->get('NONCE_KEY');
+    $this_auth_salt        = $memcache->get('AUTH_SALT');
+    $this_secure_auth_salt = $memcache->get('SECURE_AUTH_SALT');
+    $this_logged_in_salt   = $memcache->get('LOGGED_IN_SALT');
+    $this_nonce_salt       = $memcache->get('NONCE_SALT');
+
     if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'],'Google App Engine') !== false) {
         /** Live environment Cloud SQL login and SITE_URL info */
         /** Note that from App Engine, the password is not required, so leave it blank here */
-        define('DB_HOST', ':/cloudsql/your-project-id:wordpress');
+        define('DB_HOST', $this_db_host);
         define('DB_USER', 'root');
         define('DB_PASSWORD', '');
     } else {
@@ -59,14 +71,14 @@
      *
      * @since 2.6.0
      */
-    define('AUTH_KEY',         'put your unique phrase here');
-    define('SECURE_AUTH_KEY',  'put your unique phrase here');
-    define('LOGGED_IN_KEY',    'put your unique phrase here');
-    define('NONCE_KEY',        'put your unique phrase here');
-    define('AUTH_SALT',        'put your unique phrase here');
-    define('SECURE_AUTH_SALT', 'put your unique phrase here');
-    define('LOGGED_IN_SALT',   'put your unique phrase here');
-    define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         $this_auth_key);
+define('SECURE_AUTH_KEY',  $this_secure_auth_key);
+define('LOGGED_IN_KEY',    $this_logged_in_key);
+define('NONCE_KEY',        $this_nonce_key);
+define('AUTH_SALT',        $this_auth_salt);
+define('SECURE_AUTH_SALT', $this_secure_auth_salt);
+define('LOGGED_IN_SALT',   $this_logged_in_salt);
+define('NONCE_SALT',       $this_nonce_salt);
 
     /**#@-*/
 
