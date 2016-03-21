@@ -7,16 +7,16 @@
 Add PHP String keys to memcache in app engine to use with wp-config.php
 
 * DB Connection Information
-.* DB_HOST: :/cloudsql/{GOOGLE_PROJECT}:{SQL_INSTANCE}
+  * DB_HOST: :/cloudsql/{GOOGLE_PROJECT}:{SQL_INSTANCE}
 * WordPress Keys - obtain from [WordPress.org secret-key service](https://api.wordpress.org/secret-key/1.1/salt/ "WordPress.org secret-key service") or pick your own
-.* AUTH_KEY
-.* SECURE_AUTH_KEY
-.* LOGGED_IN_KEY
-.* NONCE_KEY
-.* AUTH_SALT
-.* SECURE_AUTH_SALT
-.* LOGGED_IN_SALT
-.* NONCE_SALT
+  * AUTH_KEY
+  * SECURE_AUTH_KEY
+  * LOGGED_IN_KEY
+  * NONCE_KEY
+  * AUTH_SALT
+  * SECURE_AUTH_SALT
+  * LOGGED_IN_SALT
+  * NONCE_SALT
 
 ## Initial setup (Storage Bucket)
 
@@ -48,7 +48,7 @@ sh deploy.sh GOOGLE_PROJECT
 
 ```bash
 cd /path/to/src/wordpress-src
-git checkout BRANCH
+git checkout BRANCH|TAG
 cd /path/to/src/
 sh deploy.sh GOOGLE_PROJECT
 ```
