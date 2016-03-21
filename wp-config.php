@@ -21,17 +21,16 @@
     /** The name of the database for WordPress */
     define('DB_NAME', 'wordpress_db');
 
-    # use memcache on app engine to pull DB information and keys
-    $memcache = new Memcache;
-    $this_db_host          = $memcache->get('DB_HOST');
-    $this_auth_key         = $memcache->get('AUTH_KEY');
-    $this_secure_auth_key  = $memcache->get('SECURE_AUTH_KEY');
-    $this_logged_in_key    = $memcache->get('LOGGED_IN_KEY');
-    $this_nonce_key        = $memcache->get('NONCE_KEY');
-    $this_auth_salt        = $memcache->get('AUTH_SALT');
-    $this_secure_auth_salt = $memcache->get('SECURE_AUTH_SALT');
-    $this_logged_in_salt   = $memcache->get('LOGGED_IN_SALT');
-    $this_nonce_salt       = $memcache->get('NONCE_SALT');
+    # use environment variables to pull DB information and keys or from env
+    $this_db_host          = $_SERVER['DB_HOST'];
+    $this_auth_key         = $_SERVER['AUTH_KEY'];
+    $this_secure_auth_key  = $_SERVER['SECURE_AUTH_KEY'];
+    $this_logged_in_key    = $_SERVER['LOGGED_IN_KEY'];
+    $this_nonce_key        = $_SERVER['NONCE_KEY'];
+    $this_auth_salt        = $_SERVER['AUTH_SALT'];
+    $this_secure_auth_salt = $_SERVER['SECURE_AUTH_SALT'];
+    $this_logged_in_salt   = $_SERVER['LOGGED_IN_SALT'];
+    $this_nonce_salt       = $_SERVER['NONCE_SALT'];
 
     if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'],'Google App Engine') !== false) {
         /** Live environment Cloud SQL login and SITE_URL info */

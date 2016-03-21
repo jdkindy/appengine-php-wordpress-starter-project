@@ -1,5 +1,7 @@
 runtime: php55
 api_version: 1
+includes:
+- settings.yaml
 
 handlers:
 - url: /(.*\.(htm|html|css|js))

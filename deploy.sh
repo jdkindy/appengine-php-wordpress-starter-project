@@ -41,8 +41,31 @@ cp -fr batcache/batcache.php wordpress/wp-content/plugins/
 echo 'Copy wp-memcache to wordpress/...'
 cp -fr wp-memcache/object-cache.php wordpress/wp-content/
 
-echo 'Copy appengine plugin to wordpress/...'
+echo "Copy appengine-wordpress-plugin to wordpress/wp-content/plugins/..."
 cp -fr appengine-wordpress-plugin/. wordpress/wp-content/plugins/
+
+if [ -x './env.sh' ]; then
+  # pull in environment config
+  . ./env.sh
+
+  # only process themes in env.sh
+  if [ ! -z "${THEMES}" ]; then
+    echo "Processing themes"
+    for my_theme in ${THEMES}; do
+      echo "Copy ${my_theme} to wordpress/wp-content/themes/..."
+      cp -fr ${my_theme}/. wordpress/wp-content/themes/
+    done
+  fi
+
+  # only process plugins in env.sh
+  if [ ! -z "${PLUGINS}" ]; then
+    echo "Processing plugins"
+    for my_plugin in ${PLUGINS}; do
+      echo "Copy ${my_plugin} to wordpress/wp-content/plugins/..."
+      cp -fr ${my_plugin}/. wordpress/wp-content/plugins/
+    done
+  fi
+fi
 
 echo 'Starting deploy...'
 gcloud preview app deploy ./app.yaml --project ${PROJECT_NAME}
