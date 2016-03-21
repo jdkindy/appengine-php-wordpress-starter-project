@@ -1,8 +1,8 @@
-# Initial setup
+## Initial setup
 
 * Add a project to google compute
 
-## Initial setup (App Engine)
+### Initial setup (App Engine)
 
 Add PHP String keys to memcache in app engine to use with wp-config.php
 
@@ -18,24 +18,24 @@ Add PHP String keys to memcache in app engine to use with wp-config.php
   * LOGGED_IN_SALT
   * NONCE_SALT
 
-## Initial setup (Storage Bucket)
+### Initial setup (Storage Bucket)
 
 Create a bucket for use as upload directory
 * naming is important - must be unique across Google Cloud Storage
 * select an appropriate storage class
 * select an appropriate location based on where the app will run
 
-## Initial setup (Cloud SQL)
+### Initial setup (Cloud SQL)
 
 * Create the 'wordpress_db' database
 * Allow the {GOOGLE_PROJECT} application access
 * If available, set 'Preferred location' to follow app {GOOGLE_PROJECT}
 
-# WordPress config
+## WordPress config
 
 * Make sure the appengine plugin is enabled and set to connect to the correct bucket
 
-# Deploy from google cloud shell
+## Deploy from google cloud shell
 
 ```bash
 cd /path/to/src/
@@ -44,16 +44,17 @@ modify app.yaml as needed
 sh deploy.sh GOOGLE_PROJECT
 ```
   
-# Upgrade wordpress
+## Upgrade wordpress
 
 ```bash
 cd /path/to/src/wordpress-src
+git fetch
 git checkout BRANCH|TAG
 cd /path/to/src/
 sh deploy.sh GOOGLE_PROJECT
 ```
 
-# Useful git submodule settings/commands
+## Useful git submodule settings/commands
 
 git config status.submodulesummary 1
 
