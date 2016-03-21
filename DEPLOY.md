@@ -1,4 +1,4 @@
-For this documentation (DEPLOY.md), the commands presented are being run via the Google Cloud Shell
+For this documentation (DEPLOY.md), the commands presented are being run via the Google Cloud Shell.
 
 ## Initial setup
 
@@ -26,6 +26,8 @@ Add environment variables to settings.yaml (based on settings.yaml.example) to u
   * LOGGED_IN_SALT
   * NONCE_SALT
 
+Add local plugins and themes to env.sh, if needed.  Make sure to also exclude copying the files via skip_files in app.yaml.
+
 ### Storage Bucket
 
 Create a bucket for use as upload directory
@@ -39,9 +41,9 @@ Create a bucket for use as upload directory
 * Allow the {GOOGLE_PROJECT} application access
 * If available, set 'Preferred location' to follow app {GOOGLE_PROJECT}
 
-## WordPress config
+### WordPress config
 
-* Make sure the appengine plugin is enabled and set to connect to the correct bucket
+* After the initial deploy, make sure the appengine plugin is enabled and set to connect to the correct bucket
 
 ## Deploy from Google cloud shell
 
