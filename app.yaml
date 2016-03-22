@@ -53,20 +53,3 @@ handlers:
 
 - url: /(.+)?/?
   script: wordpress/index.php
-
-# Do not copy these files to the instance:
-skip_files:
-- ^(.*/)?#.*#$
-- ^(.*/)?.*~$
-- ^(.*/)?.*\.py[co]$
-- ^(.*/)?.*/RCS/.*$
-- ^(.*/)?\..*$
-- ^(.*/)?\.zip$
-- ^(.*/)?\.bat$
-- ^(.*/)?\.sh$
-- ^(.*/)?\.md$
-- ^.git/(.*)$
-- ^wordpress-src/(.*)$
-- ^batcache/(.*)$
-- ^wp-memcache/(.*)$
-- ^appengine-wordpress-plugin/(.*)$

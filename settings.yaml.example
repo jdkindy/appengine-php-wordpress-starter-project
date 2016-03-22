@@ -28,3 +28,20 @@ env_variables:
 # basic_scaling:
 #   max_instances: 11
 #   idle_timeout: 10m
+
+# Do not copy these files to the instance. Add any plugin or theme directories to this list as well as to env.sh.
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- ^(.*/)?\.zip$
+- ^(.*/)?\.bat$
+- ^(.*/)?\.sh$
+- ^(.*/)?\.md$
+- ^.git/(.*)$
+- ^wordpress-src/(.*)$
+- ^batcache/(.*)$
+- ^wp-memcache/(.*)$
+- ^appengine-wordpress-plugin/(.*)$
