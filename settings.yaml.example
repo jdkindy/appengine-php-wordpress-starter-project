@@ -1,14 +1,14 @@
 # Configure Environment Variables
 env_variables:
-  DB_HOST: :/cloudsql/GOOGLE_PROJECT:SQL_INSTANCE
-  AUTH_KEY: 'INSERT_KEY_HERE'
-  SECURE_AUTH_KEY: 'INSERT_KEY_HERE'
-  LOGGED_IN_KEY: 'INSERT_KEY_HERE'
-  NONCE_KEY: 'INSERT_KEY_HERE'
-  AUTH_SALT: 'INSERT_KEY_HERE'
+  DB_HOST:          ':/cloudsql/GOOGLE_PROJECT:SQL_INSTANCE'
+  AUTH_KEY:         'INSERT_KEY_HERE'
+  SECURE_AUTH_KEY:  'INSERT_KEY_HERE'
+  LOGGED_IN_KEY:    'INSERT_KEY_HERE'
+  NONCE_KEY:        'INSERT_KEY_HERE'
+  AUTH_SALT:        'INSERT_KEY_HERE'
   SECURE_AUTH_SALT: 'INSERT_KEY_HERE'
-  LOGGED_IN_SALT: 'INSERT_KEY_HERE'
-  NONCE_SALT: 'INSERT_KEY_HERE'
+  LOGGED_IN_SALT:   'INSERT_KEY_HERE'
+  NONCE_SALT:       'INSERT_KEY_HERE'
 
 # Configure Scaling
 # Since automatic scaling is the default, scaling parameters are commented out here.  Uncomment and update scaling as required for your app.
