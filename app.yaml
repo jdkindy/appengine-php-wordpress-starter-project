@@ -1,8 +1,13 @@
+# General configuration
+#   see https://cloud.google.com/appengine/docs/php/config/appconfig for details on how to use app.yaml
 runtime: php55
 api_version: 1
+
+# Add include files
 includes:
 - settings.yaml
 
+# Set handlers for various URLs
 handlers:
 - url: /(.*\.(htm|html|css|js))
   static_files: wordpress/\1
@@ -49,7 +54,13 @@ handlers:
 - url: /(.+)?/?
   script: wordpress/index.php
 
+# Do not copy these files to the instance:
 skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
 - ^(.*/)?\.zip$
 - ^(.*/)?\.bat$
 - ^(.*/)?\.sh$
