@@ -22,6 +22,8 @@
     define('DB_NAME', 'wordpress_db');
 
     # use environment variables to pull DB information and keys or from env
+    $this_project_id       = $_SERVER['PROJECT_ID'];
+    $this_allow_multisite  = $_SERVER['ALLOW_MULTISITE'];
     $this_db_host          = $_SERVER['DB_HOST'];
     $this_auth_key         = $_SERVER['AUTH_KEY'];
     $this_secure_auth_key  = $_SERVER['SECURE_AUTH_KEY'];
@@ -119,6 +121,18 @@ define('NONCE_SALT',       $this_nonce_salt);
       'max_age'=>30*60, // 30 minutes
       'debug'=>false
     ];
+
+    /* Multisite - comment out the following lines to disable multisite */
+    if ($this_allow_multisite == 'true') {
+        define('WP_ALLOW_MULTISITE', true );
+        define('MULTISITE', true);
+        define('SUBDOMAIN_INSTALL', false);
+        define('DOMAIN_CURRENT_SITE', "$this_project_id.appspot.com");
+        define('PATH_CURRENT_SITE', '/');
+        define('SITE_ID_CURRENT_SITE', 1);
+        define('BLOG_ID_CURRENT_SITE', 1);
+    }
+
     /* That's all, stop editing! Happy blogging. */
 
     /** Absolute path to the WordPress directory. */

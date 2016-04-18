@@ -1,5 +1,7 @@
 # Configure Environment Variables
 env_variables:
+  PROJECT_ID:       'GOOGLE_PROJECT'
+  ALLOW_MULTISITE:  'true'
   DB_HOST:          ':/cloudsql/GOOGLE_PROJECT:SQL_INSTANCE'
   AUTH_KEY:         'INSERT_KEY_HERE'
   SECURE_AUTH_KEY:  'INSERT_KEY_HERE'

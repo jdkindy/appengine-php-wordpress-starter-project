@@ -40,6 +40,7 @@ Create a bucket for use as upload directory
 * Create the 'wordpress_db' database
 * Allow the {GOOGLE_PROJECT} application access
 * If available, set 'Preferred location' to follow app {GOOGLE_PROJECT}
+* You do not need to change passwords or assign an IPv4 address
 
 ### WordPress config
 
