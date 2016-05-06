@@ -53,7 +53,8 @@ if [ -x './env.sh' ]; then
     echo "Processing themes"
     for my_theme in ${THEMES}; do
       echo "Copy ${my_theme} to wordpress/wp-content/themes/..."
-      cp -fr ${my_theme}/. wordpress/wp-content/themes/
+      mkdir -p wordpress/wp-content/themes/${my_theme}
+      cp -fr ${my_theme}/. wordpress/wp-content/themes/${my_theme}
     done
   fi
 
@@ -62,7 +63,8 @@ if [ -x './env.sh' ]; then
     echo "Processing plugins"
     for my_plugin in ${PLUGINS}; do
       echo "Copy ${my_plugin} to wordpress/wp-content/plugins/..."
-      cp -fr ${my_plugin}/. wordpress/wp-content/plugins/
+      mkdir -p wordpress/wp-content/plugins/${my_plugin}
+      cp -fr ${my_plugin}/. wordpress/wp-content/plugins/${my_plugin}
     done
   fi
 fi
